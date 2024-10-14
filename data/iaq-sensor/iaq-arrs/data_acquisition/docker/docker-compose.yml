@@ -1,0 +1,40 @@
+version: "3.3"
+
+services:
+    sensor-rx:
+        container_name: sensor-rx
+        #commented device for PC execution
+        devices:
+            - '/dev/serial0:/dev/serial0'
+        build: sensor-reader/.
+        restart: always
+        command: sh -c "cd ./iaq-arrs && python main.py"
+        depends_on:
+            #prevents container to start before other container, on which it depends
+            - database
+        networks:
+            - mynet
+        volumes:
+            - ./../src:/iaq-arrs/
+            - ./../configuration.ini:/iaq-arrs/configuration.ini
+    database:
+        image: mariadb:10.4.24
+        container_name: database
+        restart: always
+        networks:
+            - mynet
+        env_file:
+            - ./../../configuration/.env
+        volumes:
+            - ./database/my.cnf:/etc/mysql/my.cnf
+            - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+        tmpfs:
+            - /var/lib/mysql
+            - /tmp
+        ports:
+            #- 3306:3306
+            - '127.0.0.1:3306:3306' #expose only to localhost
+
+networks:
+    mynet:
+        driver: bridge

@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "658e27b7-39cd-489d-8e01-900037d7b0f4",
+		"name": "API HATEOAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38610919",
+		"_collection_link": "https://warped-moon-924111.postman.co/workspace/My-Workspace~64e17211-698a-4df0-843c-88514447dcfc/collection/38273352-658e27b7-39cd-489d-8e01-900037d7b0f4?action=share&source=collection_link&creator=38610919"
+	},
+	"item": [
+		{
+			"name": "ALL SENSORS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/sensors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sensors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BY ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/sensors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sensors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BY TYPE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/sensors/?type=Temperature",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sensors",
+						""
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Temperature"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BY LOCATION",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/sensors/?location=Bedroom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sensors",
+						""
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "Bedroom"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ALL SENSORS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"name\":\"Temperature sensor : Bedroom\",\n\t\t\"value\":2,\n\t\t\"unit\":\"Celcius\",\n\t\t\"type\":\"Temperature\",\n\t\t\"location\":\"Bedroom\"\n\t},\n\t{\n\t\t\"name\":\"Temperature sensor : Bathroom\",\n\t\t\"value\":15,\n\t\t\"unit\":\"Celcius\",\n\t\t\"type\":\"Temperature\",\n\t\t\"location\":\"Bathroom\"\n\t},\n\t{\n\t\t\"name\":\"Temperature sensor : Kitchen\",\n\t\t\"value\":17,\n\t\t\"unit\":\"Celcius\",\n\t\t\"type\":\"Temperature\",\n\t\t\"location\":\"Kitchen\"\n\t},\n\t{\n\t\t\"name\":\"Humidity sensor : Bedroom\",\n\t\t\"value\":30,\n\t\t\"unit\":\"Percent\",\n\t\t\"type\":\"Humidity\",\n\t\t\"location\":\"Bedroom\"\n\t},\n\t{\n\t\t\"name\":\"Humidity sensor : Bathroom\",\n\t\t\"value\":80,\n\t\t\"unit\":\"Percent\",\n\t\t\"type\":\"Humidity\",\n\t\t\"location\":\"Bathroom\"\n\t},\n\t{\n\t\t\"name\":\"Humidity sensor : Kitchen\",\n\t\t\"value\":55,\n\t\t\"unit\":\"Percent\",\n\t\t\"type\":\"Humidity\",\n\t\t\"location\":\"Kitchen\"\n\t},\n\t{\n\t\t\"name\":\"Light sensor : Bedroom\",\n\t\t\"value\":10,\n\t\t\"unit\":\"Lux\",\n\t\t\"type\":\"Light\",\n\t\t\"location\":\"Bedroom\"\n\t},\n\t{\n\t\t\"name\":\"Light sensor : Bathroom\",\n\t\t\"value\":150,\n\t\t\"unit\":\"Lux\",\n\t\t\"type\":\"Light\",\n\t\t\"location\":\"Bathroom\"\n\t},\n\t{\n\t\t\"name\":\"Light sensor : Kitchen\",\n\t\t\"value\":60,\n\t\t\"unit\":\"Lux\",\n\t\t\"type\":\"Light\",\n\t\t\"location\":\"Kitchen\"\n\t},\n\t{\n\t\t\"name\":\"Air quality sensor : Bedroom\",\n\t\t\"value\":30,\n\t\t\"unit\":\"µg/m³\",\n\t\t\"type\":\"PM2.5\",\n\t\t\"location\":\"Bedroom\"\n\t},\n\t{\n\t\t\"name\":\"Air quality sensor : Bathroom\",\n\t\t\"value\":80,\n\t\t\"unit\":\"µg/m³\",\n\t\t\"type\":\"PM2.5\",\n\t\t\"location\":\"Bathroom\"\n\t},\n\t{\n\t\t\"name\":\"Air quality sensor : Kitchen\",\n\t\t\"value\":55,\n\t\t\"unit\":\"µg/m³\",\n\t\t\"type\":\"PM2.5\",\n\t\t\"location\":\"Kitchen\"\n\t},\n\t{\n\t\t\"name\":\"Air quality sensor : Bedroom\",\n\t\t\"value\":45,\n\t\t\"unit\":\"µg/m³\",\n\t\t\"type\":\"PM10\",\n\t\t\"location\":\"Bedroom\"\n\t},\n\t{\n\t\t\"name\":\"Air quality sensor : Bathroom\",\n\t\t\"value\":52,\n\t\t\"unit\":\"µg/m³\",\n\t\t\"type\":\"PM10\",\n\t\t\"location\":\"Bathroom\"\n\t},\n\t{\n\t\t\"name\":\"Air quality sensor : Kitchen\",\n\t\t\"value\":101,\n\t\t\"unit\":\"µg/m³\",\n\t\t\"type\":\"PM10\",\n\t\t\"location\":\"Kitchen\"\n\t},\n\t{\n\t\t\"name\":\"CO2 sensor : Bedroom\",\n\t\t\"value\":1100,\n\t\t\"unit\":\"ppm\",\n\t\t\"type\":\"CO2\",\n\t\t\"location\":\"Bedroom\"\n\t},\n\t{\n\t\t\"name\":\"CO2 sensor : Bathroom\",\n\t\t\"value\":900,\n\t\t\"unit\":\"ppm\",\n\t\t\"type\":\"CO2\",\n\t\t\"location\":\"Bathroom\"\n\t},\n\t{\n\t\t\"name\":\"CO2 sensor : Kitchen\",\n\t\t\"value\":2100,\n\t\t\"unit\":\"ppm\",\n\t\t\"type\":\"CO2\",\n\t\t\"location\":\"Kitchen\"\n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/sensors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sensors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "COMMUNICATION RPI",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/communication",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"communication"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
